@@ -14,10 +14,9 @@ import java.util.ArrayList;
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
     private Context context;
-    private ArrayList<String> bookid, bookname, author, category;
-    private ArrayList<Integer> available;
+    private ArrayList<String> bookid, bookname, author, category, available;
 
-    CustomAdapter(Context context, ArrayList<String> bookid, ArrayList<String> bookname, ArrayList<String> author, ArrayList<String> category, ArrayList<Integer> available) {
+    CustomAdapter(Context context, ArrayList<String> bookid, ArrayList<String> bookname, ArrayList<String> author, ArrayList<String> category, ArrayList<String> available) {
         this.context = context;
         this.bookid = bookid;
         this.bookname = bookname;
@@ -40,7 +39,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.bookname.setText(bookname.get(position));
         holder.author.setText(author.get(position));
         holder.category.setText(category.get(position));
-        holder.available.setText(String.valueOf(available.get(position))); // No need for String.valueOf() as available is already a String
+        holder.available.setText(available.get(position)); // No need for String.valueOf() as available is already a String
     }
 
     @Override

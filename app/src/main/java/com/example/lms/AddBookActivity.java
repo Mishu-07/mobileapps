@@ -48,15 +48,14 @@ public class AddBookActivity extends AppCompatActivity {
             String b_name = bookName.getText().toString();
             String b_author = author.getText().toString();
             String b_id = bookId.getText().toString();
-            Integer b_stock = Integer.valueOf(availableStock.getText().toString());
+            String b_stock = availableStock.getText().toString();
             String b_cat = selectedCat[0];
             Database db = new Database(getApplicationContext(), "bookmanager", null, 1);
-            if (b_name.isEmpty() || b_id.isEmpty() || b_author.isEmpty() || b_stock==0 || b_cat.isEmpty()) {
+            if (b_name.isEmpty() || b_id.isEmpty() || b_author.isEmpty() || b_stock.isEmpty()|| b_cat.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Fields cannot be empty! Please fill properly.", Toast.LENGTH_LONG).show();
             } else {
                 try {
-                    int stock = Integer.parseInt(String.valueOf(b_stock));
-                    db.addBook(b_id, b_name, b_author, b_cat, stock);
+                    db.addBook(b_id, b_name, b_author, b_cat, b_stock);
                     Toast.makeText(getApplicationContext(), "Book added successfully!", Toast.LENGTH_LONG).show();
                     // You might want to clear the fields or navigate to another activity after adding the book
                     bookName.setText("");

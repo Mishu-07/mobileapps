@@ -17,7 +17,7 @@ public class Database extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String qry1 = "create table users(sid text primary key, sname text, email text, pass text, role text)";
-        String qry2 = "create table booklist(bookid text primary key, bookname text, author text, category text, available integer)";
+        String qry2 = "create table booklist(bookid text primary key, bookname text, author text, category text, available text)";
         sqLiteDatabase.execSQL(qry1);
         sqLiteDatabase.execSQL(qry2);
         addDefaultAdmin(sqLiteDatabase); //Default Admin user
@@ -38,7 +38,7 @@ public class Database extends SQLiteOpenHelper {
         values.put("role", "admin");
         db.insert("users", null, values);
     }
-    public void addBook(String b_id, String b_name, String b_author, String b_cat, Integer b_stock)
+    public void addBook(String b_id, String b_name, String b_author, String b_cat, String b_stock)
     {
         ContentValues cv= new ContentValues();
         cv.put("bookid", b_id);
